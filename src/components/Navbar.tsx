@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const navLinks = [
   { href: "/services", label: "Services" },
@@ -54,11 +54,18 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <div className="w-px h-4 bg-black/15" />
+          <Link
+            href="/contact?type=candidate"
+            className="text-[13px] font-medium text-[#1d1d1f] opacity-60 hover:opacity-100 transition-opacity"
+          >
+            For Candidates
+          </Link>
           <Link
             href="/contact"
-            className="ml-2 px-4 py-1.5 rounded-full bg-[#1d1d1f] text-white text-[13px] font-medium hover:bg-[#3d3d3f] transition-colors"
+            className="px-4 py-1.5 rounded-full bg-[#1d1d1f] text-white text-[13px] font-medium hover:bg-[#3d3d3f] transition-colors"
           >
-            Get in Touch
+            Hire Talent
           </Link>
         </div>
 
@@ -86,12 +93,21 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href="/contact?type=candidate"
             onClick={() => setOpen(false)}
-            className="mt-3 px-4 py-2.5 rounded-full bg-[#1d1d1f] text-white text-[14px] font-medium text-center hover:bg-[#3d3d3f] transition-colors"
+            className="text-[15px] font-medium text-[#1d1d1f] py-2.5 border-b border-black/6 opacity-80 hover:opacity-100 transition-opacity"
           >
-            Get in Touch
+            For Candidates
           </Link>
+          <div className="flex flex-col gap-3 mt-3">
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="px-4 py-2.5 rounded-full bg-[#1d1d1f] text-white text-[14px] font-medium text-center hover:bg-[#3d3d3f] transition-colors"
+            >
+              Hire Talent
+            </Link>
+          </div>
         </div>
       )}
     </header>
